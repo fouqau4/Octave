@@ -18,16 +18,13 @@ for iter = 1:num_iters
     %
 
 
-
-
-
-
-
-
-
-
-
+    temp = zeros(size(theta,1),1);
+    for temp_i = 1:size(theta,1)
+        temp(temp_i) = theta(temp_i) - alpha / m * sum( ( X * theta - y ) .* X(:,temp_i) );
+    end
     % ============================================================
+    theta = temp;
+
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCostMulti(X, y, theta);
