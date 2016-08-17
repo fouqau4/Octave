@@ -65,10 +65,10 @@ Theta2_grad = zeros(size(Theta2));
 X = [ ones( m, 1 ) X ];
 
 Y = zeros( m, num_labels );
-
-for temp_i = 1 : m
-    Y( temp_i, y( temp_i ) ) = 1;
-end
+%for temp_i = 1 : m
+%    Y( temp_i, y( temp_i ) ) = 1;
+%end
+Y = y;
 HOfTheta = sigmoid( [ ones( m, 1 ) sigmoid( X * Theta1' ) ] * Theta2' );
 J = ( 1 / m ) * sum( sum( -Y .* log( HOfTheta ) -( 1 - Y ) .* log( 1 - HOfTheta ), 2 ) );
 %---------------------------------------------------------------------------------------------------

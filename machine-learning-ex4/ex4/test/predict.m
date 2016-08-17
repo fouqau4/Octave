@@ -11,8 +11,17 @@ num_labels = size(Theta2, 1);
 p = zeros(size(X, 1), 1);
 
 h1 = sigmoid([ones(m, 1) X] * Theta1');
-h2 = sigmoid([ones(m, 1) h1] * Theta2');
-[dummy, p] = max(h2, [], 2);
+p = sigmoid([ones(m, 1) h1] * Theta2');
+
+for temp_i = 1 : size( p )
+if( p( temp_i ) >= 0.5 )
+p( temp_i ) = 1;
+else if( p( temp_i ) < 0.5 )
+p( temp_i ) = 0;
+endif;
+end
+
+%[dummy, p] = max(h2, [], 2);
 
 % =========================================================================
 
