@@ -1,0 +1,3 @@
+#!/bin/bash
+./permutation data/mytops data/mybottoms pResult && \
+mysql -uroot -p12345 < mysqlscript
